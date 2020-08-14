@@ -37,6 +37,6 @@ $params = @{
 New-AzResourceGroupDeployment `
     -Name "Azure-Service-Notification" `
     -ResourceGroupName "tamops" `
-    -TemplateFile "C:\ServiceHealthAlert/ServiceHealthAlert.json" `
+    -TemplateFile "ServiceHealthAlert.json" `
     -TemplateParameterObject $params
 }
