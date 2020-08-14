@@ -20,7 +20,7 @@ $subscriptions=Get-AzureRMSubscription
 #Connect-AzAccount 
 
 
-$actiongroup = Get-AzActionGroup -Name $actionGroupName -ResourceGroup $rgName -WarningAction Ignore
+$actiongroup = Get-AzureRmActionGroup -Name $actionGroupName -ResourceGroup $rgName -WarningAction Ignore
 
 #For Loop through all Azure subscriptions
 ForEach ($vsub in $subscriptions){
