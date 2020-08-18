@@ -1,3 +1,6 @@
+# in terms of a error like this:
+#"Unable to find type [ System.ServiceProcess.ServiceControllerStatus ]: make sure that the assembly containing this type is loaded."
+# Load the assembly: add-type -assemblyName "System.ServiceProcess"
 ## Variables
 $actionGroupName = "SHTest"
 $actionGroupShortName = $actionGroupName
@@ -8,7 +11,7 @@ $tagValue = "Demo"
 $subscriptions=Get-AzureRMSubscription
 $email1 = New-Object  Microsoft.Azure.Commands.Insights.OutputClasses.PSEmailReceiver
 $email1.EmailAddress = "maxmustermann@gmx.net"
-$email1.Name = "Stephan"
+$email1.Name = "max"
 $receivers = @($email1)
 $tag = New-Object "System.Collections.Generic.Dictionary``2[System.String,System.String]" 
 $tag.Add($tagName,$tagValue)
