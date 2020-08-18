@@ -25,7 +25,7 @@ ForEach ($vsub in $subscriptions){
 Select-AzSubscription $vsub.SubscriptionID
 
 Write-Host “Working on “ $vsub
-Set-AzureRmActionGroup -Name $actionGroupName -ResourceGroup $rgName -ShortName $actionGroupShortName -Receiver $emailReceiverName -Tag $tag
+Set-AzureRmActionGroup -Name $actionGroupName -ResourceGroup $rgName -ShortName $actionGroupShortName -Receiver $emailAddress -Tag $tag
 $actiongroup = Get-AzureRmActionGroup -Name $actionGroupName -ResourceGroup $rgName 
 $params = @{
     activityLogAlertName = "TamOps Azure Service Notification" + $vsub.Name
