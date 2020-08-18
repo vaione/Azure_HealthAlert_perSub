@@ -15,7 +15,7 @@ $allResources = @()
 $subscriptions=Get-AzureRMSubscription
 
 # For backwards compatibility
-Enable-AzureRmAlias
+#Enable-AzureRmAlias
 # Login-Az Account
 #Connect-AzAccount 
 $email1 = New-Object  Microsoft.Azure.Commands.Insights.OutputClasses.PSEmailReceiver
