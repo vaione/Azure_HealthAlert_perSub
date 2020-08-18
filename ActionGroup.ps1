@@ -2,7 +2,7 @@
  
 $emailReceiverName = "emailreceiver"
 $emailAddress = "stephanschiller@gmx.net"
-$actionGroupName = "ServiceHealth"
+$actionGroupName = "SHTest"
 $actionGroupShortName = $actionGroupName
 $rgName = "ServiceHealthTest"
 $tagName = "Environment"
