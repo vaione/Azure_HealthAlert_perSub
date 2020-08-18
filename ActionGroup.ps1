@@ -23,6 +23,9 @@ $email1.EmailAddress = "stephanschiller@gmx.net"
 $email1.Name = "Stephan"
 $recievers = @($email1)
 
+$tag = New-Object "System.Collections.Generic.Dictionary``2[System.String,System.String]" 
+$tag.Add($tagName,$tagValue)
+
 #For Loop through all Azure subscriptions
 ForEach ($vsub in $subscriptions){
 Select-AzSubscription $vsub.SubscriptionID
