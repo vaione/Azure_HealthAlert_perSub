@@ -18,14 +18,17 @@ $subscriptions=Get-AzureRMSubscription
 Enable-AzureRmAlias
 # Login-Az Account
 #Connect-AzAccount 
-
+$email1 = New-Object  Microsoft.Azure.Commands.Insights.OutputClasses.PSEmailReceiver
+$email1.EmailAddress = "stephanschiller@gmx.net"
+$email1.Name = "Stephan"
+$recievers = @($email1)
 
 #For Loop through all Azure subscriptions
 ForEach ($vsub in $subscriptions){
 Select-AzSubscription $vsub.SubscriptionID
 
 Write-Host “Working on “ $vsub
-Set-AzureRmActionGroup -Name $actionGroupName -ResourceGroup $rgName -ShortName $actionGroupShortName -Receiver $emailAddress -Tag $tag
+Set-AzureRmActionGroup -Name $actionGroupName -ResourceGroup $rgName -ShortName $actionGroupShortName -Receiver $recievers -Tag $tag
 $actiongroup = Get-AzureRmActionGroup -Name $actionGroupName -ResourceGroup $rgName 
 $params = @{
     activityLogAlertName = "TamOps Azure Service Notification" + $vsub.Name
