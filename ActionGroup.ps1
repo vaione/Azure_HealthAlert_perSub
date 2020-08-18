@@ -6,10 +6,10 @@ $location = "northeurope"
 $tagName = "Environment"
 $tagValue = "Demo"
 $subscriptions=Get-AzureRMSubscription
-$email1 = New-Object  Microsoft.Azure.Commands.Insights.OutputClasses.PSEmailReceiver
-$email1.EmailAddress = "maxmustermann@gmx.net"
-$email1.Name = "Stephan"
-$receivers = @($email1)
+#$email1 = New-Object  Microsoft.Azure.Commands.Insights.OutputClasses.PSEmailReceiver
+#$email1.EmailAddress = "maxmustermann@gmx.net"
+#$email1.Name = "Stephan"
+#$receivers = @($email1)
 $tag = New-Object "System.Collections.Generic.Dictionary``2[System.String,System.String]" 
 $tag.Add($tagName,$tagValue)
 
@@ -22,7 +22,7 @@ Write-Host “Working on “ $vsub
 #Create resource group
 New-AzResourceGroup -Name $rgName -Location $location
 #Create action group
-Set-AzureRmActionGroup -Name $actionGroupName -ResourceGroup $rgName -ShortName $actionGroupShortName -Receiver $receivers -Tag $tag
+Set-AzureRmActionGroup -Name $actionGroupName -ResourceGroup $rgName -ShortName $actionGroupShortName -Receiver "stephanschiller@gmx.net" -Tag $tag
 #Get Azure Resource Manager ID
 $actiongroup = Get-AzureRmActionGroup -Name $actionGroupName -ResourceGroup $rgName 
 $params = @{
