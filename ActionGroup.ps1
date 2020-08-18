@@ -23,6 +23,7 @@ Write-Host “Working on “ $vsub
 New-AzResourceGroup -Name $rgName -Location $location
 #Create action group
 Set-AzureRmActionGroup -Name $actionGroupName -ResourceGroup $rgName -ShortName $actionGroupShortName -Receiver $receivers -Tag $tag
+#Get Azure Resource Manager ID
 $actiongroup = Get-AzureRmActionGroup -Name $actionGroupName -ResourceGroup $rgName 
 $params = @{
     activityLogAlertName = "TamOps Azure Service Notification" + $vsub.Name
