@@ -5,6 +5,7 @@ $emailAddress = "stephanschiller@gmx.net"
 $actionGroupName = "SHTest"
 $actionGroupShortName = $actionGroupName
 $rgName = "ServiceHealthTest"
+$location = "northeurope"
 $tagName = "Environment"
 $tagValue = "Demo"
 $time = Get-Date -UFormat "%A %m/%d/%Y %R"
@@ -31,6 +32,7 @@ ForEach ($vsub in $subscriptions){
 Select-AzSubscription $vsub.SubscriptionID
 
 Write-Host “Working on “ $vsub
+New-AzResourceGroup -Name $rgName -Location $location
 Set-AzureRmActionGroup -Name $actionGroupName -ResourceGroup $rgName -ShortName $actionGroupShortName -Receiver $recievers -Tag $tag
 $actiongroup = Get-AzureRmActionGroup -Name $actionGroupName -ResourceGroup $rgName 
 $params = @{
