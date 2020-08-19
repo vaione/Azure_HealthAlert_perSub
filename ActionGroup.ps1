@@ -1,7 +1,7 @@
 # in terms of a error like this:
 #"Unable to find type [ System.ServiceProcess.ServiceControllerStatus ]: make sure that the assembly containing this type is loaded."
-# Load the assembly: add-type -assemblyName "System.ServiceProcess"
 ## Variables
+add-type -assemblyName "System.ServiceProcess"
 $actionGroupName = "SHTest"
 $actionGroupShortName = $actionGroupName
 $rgName = "ServiceHealthTest"
@@ -20,7 +20,6 @@ $tag.Add($tagName,$tagValue)
 #For Loop through all Azure subscriptions
 ForEach ($vsub in $subscriptions){
 Select-AzSubscription $vsub.SubscriptionID
-
 Write-Host “Working on “ $vsub
 #Create resource group
 New-AzResourceGroup -Name $rgName -Location $location
